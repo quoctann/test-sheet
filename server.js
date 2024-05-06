@@ -1,31 +1,21 @@
-import express from 'express';
-import React from 'react';
-import ReactDOMServer from 'react-dom/server';
-import { StaticRouter } from 'react-router-dom';
-import App from './src/App.jsx';
+import express from 'express'
+import React from 'react'
+import * as ReactDOMServer from 'react-dom/server'
+import { StaticRouter } from 'react-router-dom/server'
+import App from './src/App.jsx'
 
-const app = express();
-const port = 3000;
+const app = express()
+const port = process.env.PORT || 3000
 
-app.get('*', (req, res) => {
-  const context = {};
-  const content = ReactDOMServer.renderToString(
-    <StaticRouter location={req.url} context={context}>
+app.get('*', async (req, res) => {
+  let html = ReactDOMServer.renderToString(
+    <StaticRouter location={req.url}>
       <App />
     </StaticRouter>
-  );
-  res.send(`
-    <html>
-      <head>
-        <title>SSR React App</title>
-      </head>
-      <body>
-        <div id="root">${content}</div>
-      </body>
-    </html>
-  `);
-});
+  )
+  res.send('<!DOCTYPE html>' + html)
+})
 
 app.listen(port, () => {
-  console.log(`Server is listening on port ${port}`);
-});
+  console.log(`Server is listening on port ${port}`)
+})
