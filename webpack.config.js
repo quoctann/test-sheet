@@ -1,9 +1,7 @@
-// webpack.config.js
 const path = require('path')
 
-// Change mode to production for production build
 module.exports = {
-  mode: 'development',
+  mode: 'development', // Change mode to production for production build
   target: 'node',
   entry: './server.js',
   output: {
@@ -13,7 +11,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
