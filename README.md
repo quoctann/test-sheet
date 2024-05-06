@@ -5,13 +5,17 @@
 ### Question 1
 
 ✔ Setup SSR with React, Webpack and Babel, Loader
+
 ✔ The entry point localhost:3000 present h1 tag with content Hello world
 
 ### Question 2
 
 ✔ Initialize feature/environment
+
 ✔ Setup project structure, development tools (husky, eslint)
+
 ✖ Setup unit test environment using Jest
+
 ✔ Merge feature/environment into master without delete current branch
 
 ### Question 3
