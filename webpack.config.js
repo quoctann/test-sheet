@@ -17,6 +17,20 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
+      {
+        test: /\.(scss|sass)$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'sass-loader',
+          },
+        ],
+      },
     ],
   },
   externals: [require('webpack-node-externals')()],
