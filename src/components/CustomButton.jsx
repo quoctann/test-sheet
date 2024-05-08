@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const Button = ({ displayText, customStyle, customClass, handler }) => {
+const CustomButton = ({ displayText, customStyle, customClass, handler }) => {
   return (
     <button
       className={customClass}
@@ -13,4 +13,4 @@ const Button = ({ displayText, customStyle, customClass, handler }) => {
   )
 }
 
-export default Button
+export default CustomButton

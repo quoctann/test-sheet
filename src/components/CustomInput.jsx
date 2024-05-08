@@ -9,7 +9,7 @@ const CustomInput = ({ initialValue, handler }) => {
       className='output'
       id='customInput'
       value={initialValue}
-      onChange={(event) => handler(event)}
+      onChange={handler}
     />
   )
 }

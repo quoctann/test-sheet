@@ -11,32 +11,36 @@ import {
   sMyRow,
   sSecondary,
 } from '../styles/CalculatorInlineStyle'
-
+import CustomInput from '../components/CustomInput'
+import CustomButton from '../components/CustomButton'
+import { BUTTON_NAME} from '../constant/buttonName'
 const Calculator = () => {
   const [history, setHistory] = useState([])
   const [result, setResult] = useState(0)
 
+  const handleChangeInput = (event) => {
+    alert("test")
+    console.log(event.target.value)
+    setResult(event.target.value)
+  }
+  
+  const handleOnClickInput = (event) => {
+    console.log(event.target.value)
+  }
+
   return (
     <div style={sCenterVertically}>
       <main style={sMain}>
-        <input
-          type='text'
-          style={sInput}
-          className='output'
-          id='test'
-          value={result}
-          onChange={(event) => console.log(event.target.value)}
-        />
+        <CustomInput initialValue={result} handler={handleChangeInput}s />
 
         <div className='myRow' style={sMyRow}>
-          <button
-            className='btn'
-            style={{ ...sButton, ...sDarkGray }}
-            value='all-clear'
-            onClick='buttonClick(this)'
-          >
-            AC
-          </button>
+          <CustomButton
+              displayText={BUTTON_NAME.CLEAR}
+              customStyle={{ ...sButton, ...sDarkGray }}
+              customClass={'btn'}
+              handler={handleOnClickInput}
+          />
+
           <button
             className='btn'
             style={{ ...sButton, ...sDarkGray }}
