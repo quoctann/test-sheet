@@ -1,126 +1,197 @@
-import React from 'react'
-import './Calculator.scss'
+import React, { useState } from 'react'
+import '../styles/Calculator.css'
+import {
+  sBtn0,
+  sBtn1,
+  sButton,
+  sCenterVertically,
+  sDarkGray,
+  sInput,
+  sMain,
+  sMyRow,
+  sSecondary,
+} from '../styles/CalculatorInlineStyle'
 
 const Calculator = () => {
+  const [history, setHistory] = useState([])
+  const [result, setResult] = useState(0)
+
   return (
-      <div className='container'>
-        <div className='panel'>
-          <p className='result'>0</p>
+    <div style={sCenterVertically}>
+      <main style={sMain}>
+        <input
+          type='text'
+          style={sInput}
+          className='output'
+          id='test'
+          value={result}
+          onChange={(event) => console.log(event.target.value)}
+        />
+
+        <div className='myRow' style={sMyRow}>
+          <button
+            className='btn'
+            style={{ ...sButton, ...sDarkGray }}
+            value='all-clear'
+            onClick='buttonClick(this)'
+          >
+            AC
+          </button>
+          <button
+            className='btn'
+            style={{ ...sButton, ...sDarkGray }}
+            value='opposite'
+            onClick='buttonClick(this)'
+          >
+            +/-
+          </button>
+          <button
+            className='btn'
+            style={{ ...sButton, ...sDarkGray }}
+            value='percent'
+            onClick='buttonClick(this)'
+          >
+            %
+          </button>
+          <button
+            className='btn secondary'
+            style={{ ...sButton, ...sSecondary }}
+            value='divide'
+            onClick='buttonClick(this)'
+          >
+            /
+          </button>
         </div>
-
-        <table>
-          <tr>
-            <td>
-              <button id='ac' className='btn especial'>
-                AC
-              </button>
-            </td>
-            <td>
-              <button id='sign' className='btn especial'>
-                +/-
-              </button>
-            </td>
-            <td>
-              <button id='percentage' className='btn especial'>
-                %
-              </button>
-            </td>
-            <td>
-              <button id='division' className='btn operator'>
-                /
-              </button>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <button id='seven' className='btn number'>
-                7
-              </button>
-            </td>
-            <td>
-              <button id='eight' className='btn number'>
-                8
-              </button>
-            </td>
-            <td>
-              <button id='nine' className='btn number'>
-                9
-              </button>
-            </td>
-            <td>
-              <button id='multiplication' className='btn operator'>
-                x
-              </button>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <button id='four' className='btn number'>
-                4
-              </button>
-            </td>
-            <td>
-              <button id='five' className='btn number'>
-                5
-              </button>
-            </td>
-            <td>
-              <button id='six' className='btn number'>
-                6
-              </button>
-            </td>
-            <td>
-              <button id='subtraction' className='btn operator'>
-                -
-              </button>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <button id='one' className='btn number'>
-                1
-              </button>
-            </td>
-            <td>
-              <button id='two' className='btn number'>
-                2
-              </button>
-            </td>
-            <td>
-              <button id='three' className='btn number'>
-                3
-              </button>
-            </td>
-            <td>
-              <button id='addition' className='btn operator'>
-                +
-              </button>
-            </td>
-          </tr>
-
-          <tr>
-            <td colSpan='2'>
-              <button id='zero' className='btn number'>
-                <p id='zero'>0</p>
-              </button>
-            </td>
-            <td>
-              <button id='point' className='btn decimal'>
-                .
-              </button>
-            </td>
-            <td>
-              <button id='equal' className='btn operator'>
-                =
-              </button>
-            </td>
-          </tr>
-        </table>
-      </div>
-    
+        <div className='myRow' style={sMyRow}>
+          <button
+            className='btn'
+            style={sButton}
+            value='7'
+            onClick='buttonClick(this)'
+          >
+            7
+          </button>
+          <button
+            className='btn'
+            style={sButton}
+            value='8'
+            onClick='buttonClick(this)'
+          >
+            8
+          </button>
+          <button
+            className='btn'
+            style={sButton}
+            value='9'
+            onClick='buttonClick(this)'
+          >
+            9
+          </button>
+          <button
+            className='btn secondary'
+            style={{ ...sButton, ...sSecondary }}
+            value='multiply'
+            onClick='buttonClick(this)'
+          >
+            x
+          </button>
+        </div>
+        <div className='myRow' style={sMyRow}>
+          <button
+            className='btn'
+            style={sButton}
+            value='4'
+            onClick='buttonClick(this)'
+          >
+            4
+          </button>
+          <button
+            className='btn'
+            style={sButton}
+            value='5'
+            onClick='buttonClick(this)'
+          >
+            5
+          </button>
+          <button
+            className='btn'
+            style={sButton}
+            value='6'
+            onClick='buttonClick(this)'
+          >
+            6
+          </button>
+          <button
+            className='btn secondary'
+            style={{ ...sButton, ...sSecondary }}
+            value='subtract'
+            onClick='buttonClick(this)'
+          >
+            -
+          </button>
+        </div>
+        <div className='myRow' style={sMyRow}>
+          <button
+            className='btn'
+            style={sButton}
+            value='1'
+            onClick='buttonClick(this)'
+          >
+            1
+          </button>
+          <button
+            className='btn'
+            style={sButton}
+            value='2'
+            onClick='buttonClick(this)'
+          >
+            2
+          </button>
+          <button
+            className='btn'
+            style={sButton}
+            value='3'
+            onClick='buttonClick(this)'
+          >
+            3
+          </button>
+          <button
+            className='btn secondary'
+            style={{ ...sButton, ...sSecondary }}
+            value='add'
+            onClick='buttonClick(this)'
+          >
+            +
+          </button>
+        </div>
+        <div className='myRow' style={sMyRow}>
+          <button
+            className='btn btn0'
+            style={{ ...sButton, ...sBtn0 }}
+            value='0'
+            onClick='buttonClick(this)'
+          >
+            0
+          </button>
+          <button
+            className='btn btn1'
+            style={{ ...sButton, ...sBtn1 }}
+            value='period'
+            onClick='buttonClick(this)'
+          >
+            .
+          </button>
+          <button
+            className='btn btn1 secondary'
+            style={{ ...sButton, ...sBtn1, ...sSecondary }}
+            value='equals'
+            onClick='buttonClick(this)'
+          >
+            =
+          </button>
+        </div>
+      </main>
+    </div>
   )
 }
 
