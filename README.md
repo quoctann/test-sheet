@@ -20,7 +20,7 @@
 
 ### Question 3
 
-✖ Initialize feature/user-interface to create calculator UI pixel perfect, centered on web layout
+✔ Initialize feature/user-interface to create calculator UI pixel perfect, centered on web layout
 
 ## Part 3 Requirement
 
