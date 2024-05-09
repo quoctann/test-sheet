@@ -13,17 +13,17 @@ import {
 } from '../styles/CalculatorInlineStyle'
 import CustomInput from '../components/CustomInput'
 import CustomButton from '../components/CustomButton'
-import { BUTTON_NAME} from '../constant/buttonName'
+import { BUTTON_NAME } from '../constant/buttonName'
 const Calculator = () => {
   const [history, setHistory] = useState([])
   const [result, setResult] = useState(0)
 
   const handleChangeInput = (event) => {
-    alert("test")
+    alert('test')
     console.log(event.target.value)
     setResult(event.target.value)
   }
-  
+
   const handleOnClickInput = (event) => {
     console.log(event.target.value)
   }
@@ -31,168 +31,133 @@ const Calculator = () => {
   return (
     <div style={sCenterVertically}>
       <main style={sMain}>
-        <CustomInput initialValue={result} handler={handleChangeInput}s />
+        <CustomInput initialValue={result} handler={handleChangeInput} s />
 
         <div className='myRow' style={sMyRow}>
           <CustomButton
-              displayText={BUTTON_NAME.CLEAR}
-              customStyle={{ ...sButton, ...sDarkGray }}
-              customClass={'btn'}
-              handler={handleOnClickInput}
+            displayText={BUTTON_NAME.CLEAR}
+            customStyle={{ ...sButton, ...sDarkGray }}
+            customClass={'btn'}
+            handler={handleOnClickInput}
           />
 
-          <button
-            className='btn'
-            style={{ ...sButton, ...sDarkGray }}
-            value='opposite'
-            onClick='buttonClick(this)'
-          >
-            +/-
-          </button>
-          <button
-            className='btn'
-            style={{ ...sButton, ...sDarkGray }}
-            value='percent'
-            onClick='buttonClick(this)'
-          >
-            %
-          </button>
-          <button
-            className='btn secondary'
-            style={{ ...sButton, ...sSecondary }}
-            value='divide'
-            onClick='buttonClick(this)'
-          >
-            /
-          </button>
+          <CustomButton
+            displayText={BUTTON_NAME.TOGGLE_MINUS}
+            customStyle={{ ...sButton, ...sDarkGray }}
+            customClass={'btn'}
+            handler={handleOnClickInput}
+          />
+
+          <CustomButton
+            displayText={BUTTON_NAME.MOD}
+            customStyle={{ ...sButton, ...sDarkGray }}
+            customClass={'btn'}
+            handler={handleOnClickInput}
+          />
+          <CustomButton
+            displayText={BUTTON_NAME.DIV}
+            customStyle={{ ...sButton, ...sSecondary }}
+            customClass={'btn secondary'}
+            handler={handleOnClickInput}
+          />
         </div>
         <div className='myRow' style={sMyRow}>
-          <button
-            className='btn'
-            style={sButton}
-            value='7'
-            onClick='buttonClick(this)'
-          >
-            7
-          </button>
-          <button
-            className='btn'
-            style={sButton}
-            value='8'
-            onClick='buttonClick(this)'
-          >
-            8
-          </button>
-          <button
-            className='btn'
-            style={sButton}
-            value='9'
-            onClick='buttonClick(this)'
-          >
-            9
-          </button>
-          <button
-            className='btn secondary'
-            style={{ ...sButton, ...sSecondary }}
-            value='multiply'
-            onClick='buttonClick(this)'
-          >
-            x
-          </button>
+          <CustomButton
+            displayText={BUTTON_NAME.SEVEN}
+            customStyle={sButton}
+            customClass={'btn'}
+            handler={handleOnClickInput}
+          />
+          <CustomButton
+            displayText={BUTTON_NAME.EIGHT}
+            customStyle={sButton}
+            customClass={'btn'}
+            handler={handleOnClickInput}
+          />
+          <CustomButton
+            displayText={BUTTON_NAME.NINE}
+            customStyle={sButton}
+            customClass={'btn'}
+            handler={handleOnClickInput}
+          />
+          <CustomButton
+            displayText={BUTTON_NAME.MULTIPLY}
+            customStyle={{ ...sButton, ...sSecondary }}
+            customClass={'btn secondary'}
+            handler={handleOnClickInput}
+          />
         </div>
         <div className='myRow' style={sMyRow}>
-          <button
-            className='btn'
-            style={sButton}
-            value='4'
-            onClick='buttonClick(this)'
-          >
-            4
-          </button>
-          <button
-            className='btn'
-            style={sButton}
-            value='5'
-            onClick='buttonClick(this)'
-          >
-            5
-          </button>
-          <button
-            className='btn'
-            style={sButton}
-            value='6'
-            onClick='buttonClick(this)'
-          >
-            6
-          </button>
-          <button
-            className='btn secondary'
-            style={{ ...sButton, ...sSecondary }}
-            value='subtract'
-            onClick='buttonClick(this)'
-          >
-            -
-          </button>
+          <CustomButton
+            displayText={BUTTON_NAME.FOUR}
+            customStyle={sButton}
+            customClass={'btn'}
+            handler={handleOnClickInput}
+          />
+          <CustomButton
+            displayText={BUTTON_NAME.FIVE}
+            customStyle={sButton}
+            customClass={'btn'}
+            handler={handleOnClickInput}
+          />
+          <CustomButton
+            displayText={BUTTON_NAME.SIX}
+            customStyle={sButton}
+            customClass={'btn'}
+            handler={handleOnClickInput}
+          />
+          <CustomButton
+            displayText={BUTTON_NAME.MINUS}
+            customStyle={{ ...sButton, ...sSecondary }}
+            customClass={'btn secondary'}
+            handler={handleOnClickInput}
+          />
         </div>
         <div className='myRow' style={sMyRow}>
-          <button
-            className='btn'
-            style={sButton}
-            value='1'
-            onClick='buttonClick(this)'
-          >
-            1
-          </button>
-          <button
-            className='btn'
-            style={sButton}
-            value='2'
-            onClick='buttonClick(this)'
-          >
-            2
-          </button>
-          <button
-            className='btn'
-            style={sButton}
-            value='3'
-            onClick='buttonClick(this)'
-          >
-            3
-          </button>
-          <button
-            className='btn secondary'
-            style={{ ...sButton, ...sSecondary }}
-            value='add'
-            onClick='buttonClick(this)'
-          >
-            +
-          </button>
+          <CustomButton
+            displayText={BUTTON_NAME.ONE}
+            customStyle={sButton}
+            customClass={'btn'}
+            handler={handleOnClickInput}
+          />
+          <CustomButton
+            displayText={BUTTON_NAME.TWO}
+            customStyle={sButton}
+            customClass={'btn'}
+            handler={handleOnClickInput}
+          />
+          <CustomButton
+            displayText={BUTTON_NAME.THREE}
+            customStyle={sButton}
+            customClass={'btn'}
+            handler={handleOnClickInput}
+          />
+          <CustomButton
+            displayText={BUTTON_NAME.PLUS}
+            customStyle={{ ...sButton, ...sSecondary }}
+            customClass={'btn secondary'}
+            handler={handleOnClickInput}
+          />
         </div>
         <div className='myRow' style={sMyRow}>
-          <button
-            className='btn btn0'
-            style={{ ...sButton, ...sBtn0 }}
-            value='0'
-            onClick='buttonClick(this)'
-          >
-            0
-          </button>
-          <button
-            className='btn btn1'
-            style={{ ...sButton, ...sBtn1 }}
-            value='period'
-            onClick='buttonClick(this)'
-          >
-            .
-          </button>
-          <button
-            className='btn btn1 secondary'
-            style={{ ...sButton, ...sBtn1, ...sSecondary }}
-            value='equals'
-            onClick='buttonClick(this)'
-          >
-            =
-          </button>
+          <CustomButton
+            displayText={BUTTON_NAME.ZERO}
+            customStyle={{ ...sButton, ...sBtn0 }}
+            customClass={'btn btn0'}
+            handler={handleOnClickInput}
+          />
+          <CustomButton
+            displayText={BUTTON_NAME.DOT}
+            customStyle={{ ...sButton, ...sBtn1 }}
+            customClass={'btn btn0'}
+            handler={handleOnClickInput}
+          />
+          <CustomButton
+            displayText={BUTTON_NAME.EQUAL}
+            customStyle={{ ...sButton, ...sBtn1, ...sSecondary }}
+            customClass={'btn btn1 secondary'}
+            handler={handleOnClickInput}
+          />
         </div>
       </main>
     </div>

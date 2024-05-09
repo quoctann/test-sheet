@@ -17,6 +17,7 @@ const BUTTON_NAME = {
   MINUS: '-',
   PLUS: '+',
   EQUAL: '=',
+  DOT: '.',
 }
 
 Object.freeze(BUTTON_NAME)
