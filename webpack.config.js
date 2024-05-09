@@ -1,5 +1,5 @@
 const path = require('path')
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 module.exports = {
   mode: 'development', // Change mode to production for production build
   target: 'node',
@@ -17,10 +17,19 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
+      {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
     ],
   },
   externals: [require('webpack-node-externals')()],
   resolve: {
     extensions: ['.js', '.jsx'],
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+    }),
+  ],
 }
